@@ -5,7 +5,11 @@ import { generateSingleEmbedding } from '@/lib/voyageai';
 import mongoose from 'mongoose';
 
 // Bedrock Lambda for LLM (Claude) - still used for answer generation
-const BEDROCK_RAG_URL = process.env.BEDROCK_API_URL || 'https://kllxjgmeg3.execute-api.us-east-1.amazonaws.com/finance_demo';
+const BEDROCK_RAG_URL = process.env.BEDROCK_API_URL;
+
+if (!BEDROCK_RAG_URL) {
+  console.error('BEDROCK_API_URL environment variable is not set');
+}
 
 // Voyage AI model - must match the one used for document embeddings
 const VOYAGE_MODEL = 'voyage-3-lite';
@@ -41,6 +45,13 @@ function extractSearchTerms(question: string): string[] {
 }
 
 export async function POST(request: NextRequest) {
+  if (!BEDROCK_RAG_URL) {
+    return NextResponse.json(
+      { error: 'BEDROCK_API_URL is not configured. Set it in .env.local' },
+      { status: 503 }
+    );
+  }
+
   try {
     await dbConnect();
     

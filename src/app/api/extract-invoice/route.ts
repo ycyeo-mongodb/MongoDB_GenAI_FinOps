@@ -1,12 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const BEDROCK_API_URL = process.env.BEDROCK_API_URL || 'https://kllxjgmeg3.execute-api.us-east-1.amazonaws.com/finance_demo';
+const BEDROCK_API_URL = process.env.BEDROCK_API_URL;
+
+if (!BEDROCK_API_URL) {
+  console.error('BEDROCK_API_URL environment variable is not set');
+}
 
 export async function POST(request: NextRequest) {
+  if (!BEDROCK_API_URL) {
+    return NextResponse.json(
+      { success: false, error: 'BEDROCK_API_URL is not configured. Set it in .env.local' },
+      { status: 503 }
+    );
+  }
+
   try {
     const body = await request.json();
 
-    // Forward request to Bedrock API with extract action
     const response = await fetch(BEDROCK_API_URL, {
       method: 'POST',
       headers: {
