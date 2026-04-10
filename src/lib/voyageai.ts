@@ -5,17 +5,15 @@
  * Using MongoDB's Voyage AI endpoint.
  * 
  * Models available:
+ * - voyage-4: Latest general-purpose model (1024 dims)
  * - voyage-4-large: Latest large model (1024 dims)
- * - voyage-3: General-purpose (1024 dims)
- * - voyage-3-lite: Faster, smaller (512 dims)
+ * - voyage-3: Previous generation (1024 dims)
  * - voyage-finance-2: Optimized for financial documents (1024 dims)
  */
 
-// MongoDB's Voyage AI endpoint
 const VOYAGE_API_URL = 'https://api.voyageai.com/v1/embeddings';
 
-// Default model - voyage-3-lite for efficiency
-const DEFAULT_MODEL = 'voyage-3-lite';
+const DEFAULT_MODEL = 'voyage-4';
 
 export interface VoyageEmbeddingResponse {
   object: string;

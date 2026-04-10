@@ -3,8 +3,8 @@ import dbConnect from '@/lib/mongodb';
 import FinancialReconciliation from '@/lib/models/FinancialReconciliation';
 import { generateSingleEmbedding, generateVoyageEmbedding } from '@/lib/voyageai';
 
-// Voyage AI model - using voyage-3-lite for efficiency (512 dims)
-const VOYAGE_MODEL = 'voyage-3-lite';
+// Voyage AI model - using voyage-4 (1024 dims)
+const VOYAGE_MODEL = 'voyage-4';
 
 // Helper to create searchable text from invoice data
 function createEmbeddingText(doc: any): string {

@@ -12,7 +12,7 @@ if (!BEDROCK_RAG_URL) {
 }
 
 // Voyage AI model - must match the one used for document embeddings
-const VOYAGE_MODEL = 'voyage-3-lite';
+const VOYAGE_MODEL = 'voyage-4';
 
 // Cosine similarity function (fallback for manual calculation)
 function cosineSimilarity(a: number[], b: number[]): number {

@@ -4,7 +4,7 @@ import FinancialReconciliation from '@/lib/models/FinancialReconciliation';
 import { generateSingleEmbedding } from '@/lib/voyageai';
 
 // Voyage AI model for embeddings
-const VOYAGE_MODEL = 'voyage-3-lite';
+const VOYAGE_MODEL = 'voyage-4';
 
 // Helper to create searchable text from document data
 function createEmbeddingText(doc: any): string {

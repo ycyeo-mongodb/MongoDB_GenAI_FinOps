@@ -4,7 +4,7 @@ import FinancialReconciliation from '@/lib/models/FinancialReconciliation';
 import { generateSingleEmbedding } from '@/lib/voyageai';
 
 // Voyage AI model - must match the one used for document embeddings
-const VOYAGE_MODEL = 'voyage-3-lite';
+const VOYAGE_MODEL = 'voyage-4';
 
 // Cosine similarity function for in-memory search
 function cosineSimilarity(a: number[], b: number[]): number {

@@ -128,7 +128,7 @@ const FinancialReconciliationSchema = new Schema<IFinancialReconciliation>(
       type: String,
       default: null,
     },
-    // Vector embedding for RAG search (1024 dimensions for Titan v2)
+    // Vector embedding for RAG search (1024 dimensions for Voyage AI voyage-4)
     embedding: {
       type: [Number],
       default: null,
